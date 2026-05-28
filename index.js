@@ -12,7 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
     errorDisplay.textContent = "";
     errorDisplay.style.display = "none";
   }
-  registrationForm.addEventListener("submit", function (event))
+  registrationForm.addEventListener("submit", function (event){
+    event.preventDefault();
+    hideError();
+    const username = registrationForm.username.value.trim();
+    const email = registrationForm.email.value.trim ();
+    const password = registrationForm.password.value;
+    const passwordCheck = registrationForm.passwordCheck.value;
+    const terms = registrationForm.terms.checked;
+
+  });
 
 });
 
