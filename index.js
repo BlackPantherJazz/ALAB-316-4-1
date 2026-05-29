@@ -52,6 +52,42 @@ if (email.toLowerCase().endsWith("@example.com")) {
     return;
 }
 
+if (password.length < 12) {
+    showError("Password must be at least 12 characters long.", registrationForm.password);
+    return;
+}
+
+if (!/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
+    showError("Password must contain at least one uppercase and one lowercase letter.", registrationForm.password);
+    return;
+}
+
+if (!/[0-9]/.test(password)) {
+    showError("Password must contain at least one number.", registrationForm.password);
+    return;
+}
+
+if (!/[^a-zA-Z0-9]/.test(password)) {
+    showError("Password must contain at least one special character.", registrationForm.password);
+    return;
+}
+
+if (/password/i.test(password)) {
+    showError("Password cannot contain the word 'password'.", registrationForm.password);
+    return;
+}
+
+if (password.toLowerCase().includes(username.toLowerCase())) {
+    showError("Password cannot contain your username.", registrationForm.password);
+    return;
+}
+
+if(password !== passwordCheck) {
+    showError("Passwords do not match", registrationForm.passwordCheck);
+    return;
+}
+
+
   });
 
 });
