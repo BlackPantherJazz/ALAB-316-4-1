@@ -42,6 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showError("Please enter a valid email address.", registrationForm.email);
+    return;
+}
+
+if (email.toLowerCase().endsWith("@example.com")) {
+    showError("Email cannot be from the domain example.com.", registrationForm.email);
+    return;
+}
+
   });
 
 });
